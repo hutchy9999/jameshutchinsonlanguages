@@ -10,8 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 
-const CALENDLY_BOOKING_URL = "REPLACE_WITH_YOUR_CALENDLY_BOOKING_URL";
-const bookingAvailable = CALENDLY_BOOKING_URL.startsWith("https://calendly.com/");
+const CALENDLY_BOOKING_URL = "https://calendly.com/james-jameshutchinsonlanguages/language-coaching";
 const bookingButtonClass = "min-h-12 bg-primary font-bold text-background hover:bg-primary/90";
 
 const sessionTopics = [
@@ -136,16 +135,9 @@ const Coaching = () => {
         <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-hero px-5 py-10 text-center shadow-book sm:p-12">
           <h2 id="booking-heading" className="text-3xl sm:text-4xl">Book your coaching session</h2>
           <p className="mb-6 mt-3 text-lg text-muted-foreground">60 minutes with James, in English, for £39.</p>
-          {bookingAvailable ? (
-            <Button asChild size="lg" className={bookingButtonClass}>
-              <a href={CALENDLY_BOOKING_URL}>Choose a time on Calendly <ArrowRight aria-hidden="true" /></a>
-            </Button>
-          ) : (
-            <>
-              <Button disabled size="lg" className={bookingButtonClass}>Choose a time on Calendly</Button>
-              <p className="mt-3 text-sm text-muted-foreground">Online booking will be available soon.</p>
-            </>
-          )}
+          <Button asChild size="lg" className={bookingButtonClass}>
+            <a href={CALENDLY_BOOKING_URL}>Choose a time on Calendly <ArrowRight aria-hidden="true" /></a>
+          </Button>
         </div>
       </section>
     </main>

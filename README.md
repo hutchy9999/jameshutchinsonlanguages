@@ -24,7 +24,7 @@ The GitHub Actions workflow publishes `main` at `https://hutchy9999.github.io/ja
 
 ## Coaching bookings
 
-Replace `REPLACE_WITH_YOUR_CALENDLY_BOOKING_URL` in [`src/pages/Coaching.tsx`](src/pages/Coaching.tsx) with your `https://calendly.com/...` booking link. The booking button stays disabled until a Calendly URL is set.
+The coaching page uses the public event URL in `CALENDLY_BOOKING_URL` in [`src/pages/Coaching.tsx`](src/pages/Coaching.tsx).
 
 ## Supabase
 
