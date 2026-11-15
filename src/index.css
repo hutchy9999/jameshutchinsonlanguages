@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Book-inspired dark theme */
+    --background: 208 69% 8%;          /* #0c1b2b - deep navy from book cover */
+    --foreground: 0 0% 98%;            /* #fafafa - clean white */
+
+    --card: 208 69% 10%;               /* Slightly lighter than background */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 208 69% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 18 100% 60%;            /* #ff6b35 - vibrant orange from "BULLSH*T" */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 208 69% 15%;          /* Darker card variant */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 208 69% 12%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 18 100% 60%;             /* Same orange for consistency */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 208 69% 20%;
+    --input: 208 69% 15%;
+    --ring: 18 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(208 69% 8%), hsl(208 69% 12%));
+    --shadow-book: 0 25px 50px -12px hsl(208 69% 4% / 0.4);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Same as light theme - we're using the dark book theme as default */
+    --background: 208 69% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 208 69% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 208 69% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 18 100% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 208 69% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 208 69% 12%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 18 100% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 208 69% 20%;
+    --input: 208 69% 15%;
+    --ring: 18 100% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  /* Typography improvements */
+  h1 {
+    @apply font-black tracking-tight;
+  }
+  
+  h2, h3 {
+    @apply font-bold tracking-tight;
+  }
+}
