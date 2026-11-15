@@ -1,4 +1,4 @@
-import bookCover from "@/assets/book-cover.png.asset.json";
+import bookCover from "@/assets/book-cover-hero.png";
 
 const BOOK_URL = "https://www.amazon.co.uk/dp/B0GX3DLKHW";
 
@@ -10,7 +10,7 @@ export const BookSection = () => {
           <div className="flex justify-center">
             <a href={BOOK_URL} target="_blank" rel="noopener noreferrer" className="block transition-transform hover:scale-[1.02]">
               <img
-                src={bookCover.url}
+                src={bookCover}
                 alt="No Bullsh*t Language Learning by James Hutchinson"
                 className="w-full max-w-sm rounded-lg shadow-book"
               />
