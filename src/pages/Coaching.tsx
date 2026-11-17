@@ -84,7 +84,7 @@ const Coaching = () => {
                 Moving abroad? <span className="mt-1 block text-primary sm:mt-0 sm:inline">Leave with a plan for what to practise before you go.</span>
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/90 sm:mt-5">
-                If you're moving in the next one to six months, we'll pick the conversations you'll need first and build a weekly practice plan around what you already know and the time you have.
+                I'll help you work out what's holding you back and what to practise first. You'll leave with a weekly routine you can stick to and a simple way to see if it's working.
               </p>
               <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
                 <p className="text-lg font-semibold sm:text-base">£39 for one 60-minute session</p>
@@ -107,7 +107,7 @@ const Coaching = () => {
           <div>
             <h2 id="audience-heading" className="text-[2rem] leading-tight sm:text-4xl">Who is this for?</h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground sm:mt-3 sm:text-base">
-              This is for you if you're moving abroad soon and still feel nervous about using the language day to day.
+              This is for you if you're moving abroad in the next one to six months and still feel nervous about using the language day to day.
             </p>
           </div>
           <ul className="grid gap-5 sm:grid-cols-2 sm:gap-4">
