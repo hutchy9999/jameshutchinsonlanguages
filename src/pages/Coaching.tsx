@@ -82,7 +82,7 @@ const Coaching = () => {
             <div>
               <p className="mb-4 font-semibold text-primary">One-to-one language coaching</p>
               <h1 className="text-4xl leading-[1.12] min-[380px]:text-[2.625rem] sm:text-4xl sm:leading-[1.1] lg:text-5xl">
-                Moving abroad? <span className="mt-1 block text-primary sm:mt-0 sm:inline">Leave with a plan for what to practise before you go.</span>
+                Feel more at home <span className="mt-1 block text-primary sm:mt-0 sm:inline">when you move abroad.</span>
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/90 sm:mt-5">
                 Being able to ask for help, chat to a neighbour or join in at dinner can change how a new place feels. I help you feel ready to have those conversations.
