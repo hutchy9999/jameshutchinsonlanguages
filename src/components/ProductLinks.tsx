@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import vocoLogo from "@/assets/voco-logo.png";
 
 const products = [
   {
@@ -7,9 +8,10 @@ const products = [
     href: "https://www.amazon.co.uk/dp/B0GX3DLKHW",
   },
   {
-    title: "Conversation Platform",
+    title: "Voco - Practice speaking another language",
     description: "Practise real conversations with AI. Build the confidence to actually speak.",
     href: "https://www.speakwithvoco.com/",
+    logo: vocoLogo,
   },
   {
     title: "Free 5-Day Email Course",
@@ -26,7 +28,7 @@ export const ProductLinks = () => {
           How I can help you
         </h2>
         <div className="grid gap-3 md:grid-cols-3 md:gap-4">
-          {products.map(({ title, description, href }) => (
+          {products.map(({ title, description, href, logo }) => (
             <a
               key={href}
               href={href}
@@ -37,6 +39,9 @@ export const ProductLinks = () => {
               <div className="space-y-1.5">
                 <h3 className="text-lg leading-tight">{title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+                {logo && (
+                  <img src={logo} alt="" loading="lazy" className="h-11 w-full max-w-56 rounded-md bg-foreground object-cover object-[50%_49%]" />
+                )}
               </div>
               <ArrowUpRight aria-hidden="true" className="h-5 w-5 shrink-0 text-primary" />
             </a>
