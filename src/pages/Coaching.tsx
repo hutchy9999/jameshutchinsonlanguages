@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_BOOKING_URL = "https://calendly.com/james-jameshutchinsonlanguages/language-coaching";
+const sessionPrice = "£40 per 60-minute session";
 const bookingButtonClass = "h-auto min-h-12 w-full whitespace-normal bg-primary px-4 py-3.5 text-lg font-bold text-background hover:bg-primary/90 sm:w-auto sm:px-8 sm:py-2 sm:text-sm";
 
 const movingAbroadWorries = [
@@ -51,7 +52,7 @@ const faqs = [
   },
   {
     question: "Do I have to commit to more sessions?",
-    answer: "No. £39 covers one 60-minute session. We'll use that hour to make a plan you can get started on yourself.",
+    answer: `No. It's ${sessionPrice}. We'll use that hour to make a plan you can get started on yourself.`,
   },
   {
     question: "How often should I do this?",
@@ -87,7 +88,7 @@ const Coaching = () => {
                 Being able to ask for help, chat to a neighbour or join in at dinner can change how a new place feels. I help you feel ready to have those conversations.
               </p>
               <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
-                <p className="text-lg font-semibold sm:text-base">£39 for one 60-minute session</p>
+                <p className="text-lg font-semibold sm:text-base">{sessionPrice}</p>
                 <Button asChild size="lg" className={bookingButtonClass}>
                   <a href={CALENDLY_BOOKING_URL}>Choose a time <ArrowRight aria-hidden="true" /></a>
                 </Button>
@@ -162,7 +163,7 @@ const Coaching = () => {
       <section id="book" tabIndex={-1} className="scroll-mt-6 px-4 pb-16 sm:px-6 sm:pb-20" aria-labelledby="booking-heading">
         <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-hero px-4 py-10 text-center shadow-book sm:p-12">
           <h2 id="booking-heading" className="text-3xl sm:text-4xl">Book your coaching session</h2>
-          <p className="mb-6 mt-3 text-lg text-muted-foreground">60 minutes with James, in English, for £39.</p>
+          <p className="mb-6 mt-3 text-lg text-muted-foreground">{sessionPrice} with James.</p>
           <Button asChild size="lg" className={bookingButtonClass}>
             <a href={CALENDLY_BOOKING_URL}>Choose a time <ArrowRight aria-hidden="true" /></a>
           </Button>
