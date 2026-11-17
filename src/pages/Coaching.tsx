@@ -82,7 +82,7 @@ const Coaching = () => {
                 If you're moving in the next one to six months, we'll pick the conversations you'll need first and build a weekly practice plan around what you already know and the time you have.
               </p>
               <div className="mt-5 space-y-3">
-                <p className="font-semibold">£39 for one 60-minute session, in English</p>
+                <p className="font-semibold">£39 for one 60-minute session</p>
                 <Button asChild size="lg" className={bookingButtonClass}>
                   <a href={CALENDLY_BOOKING_URL}>Choose a time <ArrowRight aria-hidden="true" /></a>
                 </Button>
