@@ -22,16 +22,16 @@ const movingAbroadWorries = [
 
 const sessionTakeaways = [
   {
-    title: "A shortlist of conversations to practise first",
-    description: "Think calling a landlord, making an appointment or chatting to a new neighbour. We'll pick the ones you're most likely to need.",
+    title: "A clear understanding of what's holding you back",
+    description: "We'll identify why you're struggling to make progress and what needs to change, so you can stop wasting time on methods that aren't working for you.",
   },
   {
-    title: "A weekly routine you can stick to",
-    description: "We'll decide what to do and when to fit it in, including on a busy week.",
+    title: "A personalised roadmap for your move abroad",
+    description: "A realistic plan built around your current level, available time and moving date, with clear priorities and milestones to work towards.",
   },
   {
-    title: "A simple way to keep yourself on track",
-    description: "You'll know what to check each week and how to get going again if you miss a few days.",
+    title: "A system to stay consistent and track your progress",
+    description: "Know what to practise, how to measure improvement and what to do when motivation drops or life gets in the way.",
   },
 ];
 
