@@ -122,7 +122,7 @@ const Coaching = () => {
           <div>
             <h2 id="audience-heading" className="text-[2rem] leading-tight sm:text-4xl">Who is this for?</h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground sm:mt-3 sm:text-base">
-              This is for you if you're moving abroad in the next one to six months and still feel nervous about using the language day to day.
+              This is for you if you're moving abroad in the near future and still feel nervous about using the language day to day.
             </p>
           </div>
           <ul className="grid gap-5 sm:grid-cols-2 sm:gap-4">
