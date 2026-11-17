@@ -6,7 +6,7 @@ export const CoachingAbout = () => (
       <h2 id="about-heading" className="text-3xl sm:text-4xl">Hi, I'm <span className="text-primary">James.</span></h2>
 
       <div className="mt-6 grid gap-7 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
-        <div className="grid grid-cols-[5rem_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-6 lg:col-start-2 lg:row-start-1 lg:block">
+        <div className="grid grid-cols-[clamp(7rem,40vw,11rem)_minmax(0,1fr)] items-center gap-4 sm:gap-6 lg:col-start-2 lg:row-start-1 lg:block">
           <img
             src={jamesCloseUp}
             alt="James Hutchinson"
@@ -15,7 +15,7 @@ export const CoachingAbout = () => (
             loading="lazy"
             className="aspect-square w-full rounded-xl object-cover shadow-book lg:rounded-2xl"
           />
-          <dl className="grid grid-cols-2 gap-3 sm:gap-5 lg:mt-5">
+          <dl className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:mt-5">
             <div className="flex flex-col-reverse justify-end gap-1">
               <dt className="text-sm leading-snug text-muted-foreground">Years learning Spanish and Italian</dt>
               <dd className="text-2xl font-bold text-primary sm:text-3xl">13</dd>
