@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Link, useLocation, useNavigationType } from "react-router-dom";
 import jamesPortrait from "@/assets/james-portrait.jpg";
 import { CoachingAbout } from "@/components/CoachingAbout";
+import { trackCoaching } from "@/lib/coachingAnalytics";
 import {
   Accordion,
   AccordionContent,
@@ -64,6 +65,8 @@ const Coaching = () => {
   const { hash } = useLocation();
   const navigationType = useNavigationType();
 
+  useEffect(() => { trackCoaching("coaching_view"); }, []);
+
   useLayoutEffect(() => {
     if (hash) {
       document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "instant" });
@@ -101,7 +104,7 @@ const Coaching = () => {
               <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
                 <p className="text-lg font-semibold sm:text-base">{sessionPrice}</p>
                 <Button asChild size="lg" className={bookingButtonClass}>
-                  <a href={CALENDLY_BOOKING_URL}>Choose a time <ArrowRight aria-hidden="true" /></a>
+                  <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_hero")}>Choose a time <ArrowRight aria-hidden="true" /></a>
                 </Button>
               </div>
             </div>
@@ -188,7 +191,7 @@ const Coaching = () => {
           <h2 id="booking-heading" className="text-3xl sm:text-4xl">Book your coaching session</h2>
           <p className="mb-6 mt-3 text-lg text-muted-foreground">{sessionPrice} with James.</p>
           <Button asChild size="lg" className={bookingButtonClass}>
-            <a href={CALENDLY_BOOKING_URL}>Choose a time <ArrowRight aria-hidden="true" /></a>
+            <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_footer")}>Choose a time <ArrowRight aria-hidden="true" /></a>
           </Button>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { trackCoaching } from "@/lib/coachingAnalytics";
 
 export const CoachingFeature = () => (
   <section
@@ -18,7 +19,7 @@ export const CoachingFeature = () => (
     </div>
     <div>
       <Button asChild size="lg" className="h-auto min-h-12 w-full whitespace-normal px-4 py-3 font-bold text-background sm:w-auto sm:px-6">
-        <Link to="/coaching">See how coaching works <ArrowRight aria-hidden="true" /></Link>
+        <Link to="/coaching" onClick={() => trackCoaching("home_coaching_click")}>See how coaching works <ArrowRight aria-hidden="true" /></Link>
       </Button>
     </div>
   </section>
