@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_BOOKING_URL = "https://calendly.com/james-jameshutchinsonlanguages/language-coaching";
-const bookingButtonClass = "min-h-12 bg-primary font-bold text-background hover:bg-primary/90";
+const bookingButtonClass = "h-auto min-h-12 w-full whitespace-normal bg-primary px-4 py-3.5 text-lg font-bold text-background hover:bg-primary/90 sm:w-auto sm:px-8 sm:py-2 sm:text-sm";
 
 const movingAbroadWorries = [
   "What if I mess up on the phone and can't explain what I need?",
@@ -69,25 +69,25 @@ const Coaching = () => {
   }, []);
 
   return (
-    <main>
+    <main className="[overflow-wrap:anywhere]">
       <section className="bg-gradient-hero px-4 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <Link to="/" className="inline-flex items-center gap-2 py-6 text-sm text-muted-foreground hover:text-primary">
+          <Link to="/" className="inline-flex min-h-12 items-center gap-2 rounded-sm text-base text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:py-6 sm:text-sm">
             <ArrowLeft aria-hidden="true" className="h-4 w-4" />
             Back to home
           </Link>
 
-          <div className="grid items-center gap-8 pb-8 pt-4 md:grid-cols-[1.6fr_1fr] md:pb-12 md:pt-8 lg:gap-12">
+          <div className="grid items-center gap-8 pb-12 pt-7 sm:pb-8 sm:pt-4 md:grid-cols-[1.6fr_1fr] md:pb-12 md:pt-8 lg:gap-12">
             <div>
               <p className="mb-4 font-semibold text-primary">One-to-one language coaching</p>
-              <h1 className="text-3xl leading-[1.1] sm:text-4xl lg:text-5xl">
-                Moving abroad? <span className="text-primary">Leave with a plan for what to practise before you go.</span>
+              <h1 className="text-4xl leading-[1.12] min-[380px]:text-[2.625rem] sm:text-4xl sm:leading-[1.1] lg:text-5xl">
+                Moving abroad? <span className="mt-1 block text-primary sm:mt-0 sm:inline">Leave with a plan for what to practise before you go.</span>
               </h1>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/90 sm:text-lg">
+              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/90 sm:mt-5">
                 If you're moving in the next one to six months, we'll pick the conversations you'll need first and build a weekly practice plan around what you already know and the time you have.
               </p>
-              <div className="mt-5 space-y-3">
-                <p className="font-semibold">£39 for one 60-minute session</p>
+              <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
+                <p className="text-lg font-semibold sm:text-base">£39 for one 60-minute session</p>
                 <Button asChild size="lg" className={bookingButtonClass}>
                   <a href={CALENDLY_BOOKING_URL}>Choose a time <ArrowRight aria-hidden="true" /></a>
                 </Button>
@@ -102,17 +102,17 @@ const Coaching = () => {
         </div>
       </section>
 
-      <section className="border-y border-border bg-card px-4 py-8 sm:px-6 md:py-12" aria-labelledby="audience-heading">
-        <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[2fr_3fr] lg:gap-10">
+      <section className="border-y border-border bg-card px-4 py-10 sm:px-6 sm:py-8 md:py-12" aria-labelledby="audience-heading">
+        <div className="mx-auto grid max-w-6xl gap-6 sm:gap-5 lg:grid-cols-[2fr_3fr] lg:gap-10">
           <div>
-            <h2 id="audience-heading" className="text-3xl sm:text-4xl">Who is this for?</h2>
-            <p className="mt-3 max-w-md leading-relaxed text-muted-foreground">
+            <h2 id="audience-heading" className="text-[2rem] leading-tight sm:text-4xl">Who is this for?</h2>
+            <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground sm:mt-3 sm:text-base">
               This is for you if you're moving abroad soon and still feel nervous about using the language day to day.
             </p>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-5 sm:grid-cols-2 sm:gap-4">
             {movingAbroadWorries.map((worry) => (
-              <li key={worry} className="border-l-2 border-primary/70 pl-3 leading-relaxed text-foreground/90">
+              <li key={worry} className="border-l-2 border-primary/70 pl-4 text-lg leading-relaxed text-foreground/90 sm:pl-3 sm:text-base">
                 &ldquo;{worry}&rdquo;
               </li>
             ))}
@@ -152,7 +152,7 @@ const Coaching = () => {
       </section>
 
       <section id="book" tabIndex={-1} className="scroll-mt-6 px-4 pb-16 sm:px-6 sm:pb-20" aria-labelledby="booking-heading">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-hero px-5 py-10 text-center shadow-book sm:p-12">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-hero px-4 py-10 text-center shadow-book sm:p-12">
           <h2 id="booking-heading" className="text-3xl sm:text-4xl">Book your coaching session</h2>
           <p className="mb-6 mt-3 text-lg text-muted-foreground">60 minutes with James, in English, for £39.</p>
           <Button asChild size="lg" className={bookingButtonClass}>
