@@ -53,6 +53,10 @@ const faqs = [
     question: "Do I have to commit to more sessions?",
     answer: "No. £39 covers one 60-minute session. We'll use that hour to make a plan you can get started on yourself.",
   },
+  {
+    question: "How often should I do this?",
+    answer: "That's up to you. Each session is 1 hour and for the first session, we'll dive into your roadmap and your routine going forwards. After that, you could have a session once a week or as often as you like, so that we can work together and keep you on track and help you overcome any struggles you have.",
+  },
 ];
 
 const Coaching = () => {
