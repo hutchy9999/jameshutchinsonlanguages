@@ -84,7 +84,7 @@ const Coaching = () => {
                 Moving abroad? <span className="mt-1 block text-primary sm:mt-0 sm:inline">Leave with a plan for what to practise before you go.</span>
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/90 sm:mt-5">
-                I'll help you work out what's holding you back and what to practise first. You'll leave with a weekly routine you can stick to and a simple way to see if it's working.
+                I'll draw on 13 years of learning Spanish and Italian to help you work out what's holding you back and what to focus on before you move. We'll agree on milestones to keep you on track. You can book follow-up sessions to review your progress and work through setbacks together.
               </p>
               <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
                 <p className="text-lg font-semibold sm:text-base">£39 for one 60-minute session</p>
