@@ -4,7 +4,7 @@ import vocoLogo from "@/assets/voco-logo.png";
 const products = [
   {
     title: "Voco - Practice speaking another language",
-    description: "Practise real conversations with AI. Build the confidence to actually speak.",
+    description: "I built this platform that helps people practise speaking another language in a relaxed environment",
     href: "https://www.speakwithvoco.com/",
     logo: vocoLogo,
   },
