@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigationType } from "react-router-dom";
 import jamesPortrait from "@/assets/james-portrait.jpg";
 import { CoachingAbout } from "@/components/CoachingAbout";
 import {
@@ -61,6 +61,17 @@ const faqs = [
 ];
 
 const Coaching = () => {
+  const { hash } = useLocation();
+  const navigationType = useNavigationType();
+
+  useLayoutEffect(() => {
+    if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "instant" });
+    } else if (navigationType !== "POP") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [hash, navigationType]);
+
   useEffect(() => {
     const previousTitle = document.title;
     document.title = "Language coaching for moving abroad | James Hutchinson";
