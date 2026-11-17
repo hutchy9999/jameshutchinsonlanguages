@@ -103,6 +103,20 @@ const Coaching = () => {
         </div>
       </section>
 
+      <section className="px-4 py-10 sm:px-6 md:py-12" aria-labelledby="approach-heading">
+        <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[2fr_3fr] lg:gap-10">
+          <h2 id="approach-heading" className="text-[2rem] leading-tight sm:text-4xl">How I’ll help you get there</h2>
+          <div className="max-w-3xl space-y-3 text-lg leading-relaxed text-foreground/90">
+            <p>
+              We’ll start with where you’re moving, what you’ve tried and where you get stuck. I’ll draw on my 13 years of language experience to help you decide what’s worth practising before you go. We’ll agree on a few milestones so you know whether you’re making progress.
+            </p>
+            <p>
+              If you book a follow-up, we’ll look at what you managed, talk through what got in the way and adjust the plan together.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-border bg-card px-4 py-10 sm:px-6 sm:py-8 md:py-12" aria-labelledby="audience-heading">
         <div className="mx-auto grid max-w-6xl gap-6 sm:gap-5 lg:grid-cols-[2fr_3fr] lg:gap-10">
           <div>
@@ -124,14 +138,6 @@ const Coaching = () => {
       <section className="px-4 py-8 sm:px-6 md:py-12" aria-labelledby="session-heading">
         <div className="mx-auto max-w-6xl">
           <h2 id="session-heading" className="text-3xl sm:text-4xl">What you'll leave with</h2>
-          <div className="mt-4 max-w-3xl space-y-3 text-lg leading-relaxed text-foreground/90">
-            <p>
-              We'll start with where you're moving, what you've tried and where you get stuck. I'll draw on 13 years of learning Spanish and Italian to help you decide what's worth practising before you go. We'll agree on a few milestones so you know whether you're making progress.
-            </p>
-            <p>
-              If you book a follow-up, we'll look at what you managed, talk through what got in the way and adjust the plan together.
-            </p>
-          </div>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {sessionTakeaways.map(({ title, description }) => (
               <div key={title} className="rounded-2xl border bg-card p-6 shadow-book">
