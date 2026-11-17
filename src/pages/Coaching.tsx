@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import jamesPortrait from "@/assets/james-portrait.jpg";
+import { CoachingAbout } from "@/components/CoachingAbout";
 import {
   Accordion,
   AccordionContent,
@@ -130,18 +131,7 @@ const Coaching = () => {
         </div>
       </section>
 
-      <section className="border-y bg-card px-4 py-14 sm:px-6 sm:py-16" aria-labelledby="about-heading">
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-[1fr_2fr] md:gap-12">
-          <div className="flex items-center gap-4">
-            <img src={jamesPortrait} alt="James Hutchinson" loading="lazy" className="size-16 rounded-lg object-cover md:hidden" />
-            <h2 id="about-heading" className="text-3xl sm:text-4xl">Hi, I'm <span className="text-primary">James.</span></h2>
-          </div>
-          <div className="space-y-4 text-lg leading-relaxed text-foreground/90">
-            <p>I've spent 13 years looking into how we learn languages. For a long time I studied without getting much better at speaking. Things started to change when I changed what I practised each day.</p>
-            <p>I wrote <cite>No Bullsh*t Language Learning</cite> to share what I'd learnt. In a coaching session, we can spend the time working out what makes sense for you and the move you've got coming up.</p>
-          </div>
-        </div>
-      </section>
+      <CoachingAbout />
 
       <section className="px-4 py-14 sm:px-6 sm:py-20" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-3xl">
