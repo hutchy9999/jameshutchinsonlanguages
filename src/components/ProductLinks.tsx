@@ -32,7 +32,7 @@ export const ProductLinks = () => {
               className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-book transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:gap-4 lg:p-5"
             >
               {logo && (
-                <div className="grid size-[4.5rem] shrink-0 place-items-center overflow-hidden rounded-lg bg-foreground/90 sm:size-24">
+                <div className="grid size-[4.5rem] shrink-0 place-items-center overflow-hidden rounded-lg bg-white sm:size-24">
                   <img src={logo} alt="" loading="lazy" className="w-full scale-150" />
                 </div>
               )}
