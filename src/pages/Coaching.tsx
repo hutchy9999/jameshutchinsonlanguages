@@ -13,6 +13,13 @@ import { Button } from "@/components/ui/button";
 const CALENDLY_BOOKING_URL = "https://calendly.com/james-jameshutchinsonlanguages/language-coaching";
 const bookingButtonClass = "min-h-12 bg-primary font-bold text-background hover:bg-primary/90";
 
+const movingAbroadWorries = [
+  "What if I mess up on the phone and can't explain what I need?",
+  "I can get through a lesson, but when someone replies, my mind goes blank.",
+  "I know a bit already. What should I actually practise first?",
+  "I've got a move to organise. When am I supposed to fit in language practice?",
+];
+
 const sessionTakeaways = [
   {
     title: "A shortlist of conversations to practise first",
@@ -87,6 +94,24 @@ const Coaching = () => {
               className="hidden aspect-square w-full max-w-sm justify-self-end rounded-2xl object-cover shadow-book md:block"
             />
           </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-card px-4 py-8 sm:px-6 md:py-12" aria-labelledby="audience-heading">
+        <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[2fr_3fr] lg:gap-10">
+          <div>
+            <h2 id="audience-heading" className="text-3xl sm:text-4xl">Who is this for?</h2>
+            <p className="mt-3 max-w-md leading-relaxed text-muted-foreground">
+              This is for you if you're moving abroad soon and still feel nervous about using the language day to day.
+            </p>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {movingAbroadWorries.map((worry) => (
+              <li key={worry} className="border-l-2 border-primary/70 pl-3 leading-relaxed text-foreground/90">
+                &ldquo;{worry}&rdquo;
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
