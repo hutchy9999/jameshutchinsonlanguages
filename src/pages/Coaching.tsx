@@ -147,6 +147,12 @@ const Coaching = () => {
               </div>
             ))}
           </div>
+          <div className="mt-4 rounded-2xl border border-primary/40 bg-card p-5 sm:p-6">
+            <h3 className="text-xl">Free access to Voco</h3>
+            <p className="mt-2 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              Your session includes free access to Voco, the conversation practice platform I built. After the call, you can use it to practise the situations we pick together, like calling a landlord, booking an appointment or chatting to a new neighbour.
+            </p>
+          </div>
         </div>
       </section>
 
