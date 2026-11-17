@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import vocoLogo from "@/assets/voco-logo.png";
+import { CoachingFeature } from "@/components/CoachingFeature";
 
 const products = [
   {
@@ -22,7 +23,8 @@ export const ProductLinks = () => {
         <h2 id="resources-heading" className="mb-4 text-2xl sm:mb-6 sm:text-3xl">
           How I can help you
         </h2>
-        <div className="grid gap-3 md:grid-cols-2 md:gap-4">
+        <CoachingFeature />
+        <div className="mt-4 grid gap-3 md:grid-cols-2 md:gap-4">
           {products.map(({ title, description, href, logo }) => (
             <a
               key={href}

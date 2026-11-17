@@ -1,11 +1,11 @@
-import { CoachingHero } from "@/components/CoachingHero";
+import { HomeIntro } from "@/components/HomeIntro";
 import { ProductLinks } from "@/components/ProductLinks";
 import { BookSection } from "@/components/BookSection";
 
 const Index = () => {
   return (
     <main>
-      <CoachingHero />
+      <HomeIntro />
       <ProductLinks />
       <BookSection />
     </main>
