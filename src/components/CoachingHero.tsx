@@ -29,11 +29,10 @@ export const CoachingHero = () => (
           <p className="mt-4 max-w-xl text-base leading-relaxed text-foreground/90 sm:text-lg">
             We'll work out what to practise before you go, from calling a landlord to chatting with your new neighbours.
           </p>
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 sm:mt-6">
+          <div className="mt-5 flex sm:mt-6">
             <Button asChild size="lg" className="min-h-12 px-4 font-bold text-background sm:px-6">
               <Link to="/coaching">See how coaching works <ArrowRight aria-hidden="true" /></Link>
             </Button>
-            <p className="text-sm font-medium text-muted-foreground">£39 for 60 minutes</p>
           </div>
         </div>
 
