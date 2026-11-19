@@ -10,6 +10,11 @@ const products = [
     logo: vocoLogo,
   },
   {
+    title: "30 Days and 30 Ways",
+    description: "Daily, actionable insights via email to help you get fluent in your target language. Completely free.",
+    href: `${import.meta.env.BASE_URL}30days`,
+  },
+  {
     title: "Free 5-Day Email Course",
     description: "Five emails to help you get comfortable having conversations.",
     href: "https://conversations.jameshutchinsonlanguages.com",
@@ -24,13 +29,13 @@ export const ProductLinks = () => {
           How I can help you
         </h2>
         <CoachingFeature />
-        <div className="mt-4 grid gap-3 md:grid-cols-2 md:gap-4">
+        <div className="mt-4 grid gap-3 lg:grid-cols-3 lg:gap-4">
           {products.map(({ title, description, href, logo }) => (
             <a
               key={href}
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={href.startsWith("https://") ? "_blank" : undefined}
+              rel={href.startsWith("https://") ? "noopener noreferrer" : undefined}
               className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-book transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:gap-4 lg:p-5"
             >
               {logo && (
