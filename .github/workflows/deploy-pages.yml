@@ -44,6 +44,8 @@ jobs:
           npm run build -- --base "${PAGES_BASE_PATH%/}/"
           mkdir -p dist/coaching
           cp dist/index.html dist/coaching/index.html
+          mkdir -p dist/30days
+          cp dist/index.html dist/30days/index.html
           cp dist/index.html dist/404.html
 
       - name: Upload the build
