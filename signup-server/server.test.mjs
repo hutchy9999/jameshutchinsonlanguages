@@ -128,3 +128,45 @@ test('health checks do not subscribe anyone and unexpected routes/methods are re
   assert.equal((await fetch(`${base}/subscribe`, { headers: { Origin: origin } })).status, 405);
   assert.equal(calls.length, 0);
 });
+
+test('reports a conversion only after MailerLite accepts it, using a hash rather than the email', async t => {
+  const calls = [];
+  const visitorId = '5ef129b5-4666-4db1-af92-e4c07ebcfd42';
+  const { post } = await setup(t, { analyticsSecret: 'test-analytics-key', fetchImpl: async (url, options) => {
+    calls.push({ url, options });
+    return url.includes('mailerlite.com') ? subscriber() : Response.json({ ok: true });
+  } });
+  assert.equal((await post({ email: 'reader@example.com', visitor_id: visitorId })).status, 200);
+  assert.equal(calls.length, 2);
+  assert.match(calls[1].url, /language-course\/signup$/);
+  const body = JSON.parse(calls[1].options.body);
+  assert.equal(body.visitor_id, visitorId);
+  assert.match(body.email_hash, /^[a-f0-9]{64}$/);
+  assert.doesNotMatch(calls[1].options.body, /reader@example.com/);
+  assert.equal(calls[1].options.headers['x-course-secret'], 'test-analytics-key');
+});
+
+test('does not report a conversion for honeypots or failed provider requests', async t => {
+  let calls = 0;
+  const { post } = await setup(t, { analyticsSecret: 'test-analytics-key', fetchImpl: async () => {
+    calls++;
+    return new Response('', { status: 422 });
+  } });
+  await post({ email: 'bot@example.com', website: 'spam' });
+  assert.equal(calls, 0);
+  assert.equal((await post()).status, 502);
+  assert.equal(calls, 1);
+});
+
+test('retries analytics once and preserves a successful signup during an analytics outage', async t => {
+  let attempts = 0;
+  const { post } = await setup(t, { analyticsSecret: 'test-analytics-key', fetchImpl: async url => {
+    if (url.includes('mailerlite.com')) return subscriber();
+    attempts++;
+    throw new Error('analytics offline');
+  } });
+  const response = await post();
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).success, true);
+  assert.equal(attempts, 2);
+});

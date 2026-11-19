@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { getCourseVisitorId, trackCourseVisit } from "@/lib/courseAnalytics";
 
 const signupEndpoint = "https://language-course-signup-production.up.railway.app/subscribe";
 
@@ -16,6 +17,7 @@ const ThirtyDays = () => {
   const successHeading = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    trackCourseVisit();
     const previousTitle = document.title;
     document.title = "30 Days and 30 Ways | James Hutchinson Languages";
     return () => { document.title = previousTitle; };
@@ -43,7 +45,7 @@ const ThirtyDays = () => {
       const response = await fetch(signupEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: address, website }),
+        body: JSON.stringify({ email: address, website, visitor_id: getCourseVisitorId() }),
         credentials: "omit",
         signal: controller.signal,
       });

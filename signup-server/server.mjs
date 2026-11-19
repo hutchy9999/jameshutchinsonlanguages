@@ -1,6 +1,7 @@
 import { createServer } from 'node:http';
 import { isIP } from 'node:net';
 import { pathToFileURL } from 'node:url';
+import { createHash, randomUUID } from 'node:crypto';
 
 const origins = new Set([
   'https://jameshutchinsonlanguages.com',
@@ -9,9 +10,10 @@ const origins = new Set([
 const courseGroupId = '204572167059276811';
 const windowMs = 10 * 60 * 1000;
 
-// This service runs independently of Voco. It does not use its code, secrets,
-// database or authentication. Only the server talks to MailerLite.
-export function createSignupServer({ apiKey = process.env.MAILERLITE_API_KEY, fetchImpl = fetch } = {}) {
+// This service runs independently of Voco. Only the server talks to MailerLite.
+// An optional analytics-only secret lets it report anonymous conversions;
+// signup success does not depend on Voco's availability.
+export function createSignupServer({ apiKey = process.env.MAILERLITE_API_KEY, fetchImpl = fetch, analyticsSecret = process.env.COURSE_ANALYTICS_SECRET } = {}) {
   const attempts = new Map();
   let lastSweep = 0;
 
@@ -130,6 +132,27 @@ export function createSignupServer({ apiKey = process.env.MAILERLITE_API_KEY, fe
       if (!added || !['active', 'unconfirmed'].includes(subscriber?.status)) {
         reply(res, 502, { error: 'Could not complete signup. Please try again.' });
         return;
+      }
+      // Analytics is optional: Voco being unavailable must not turn a valid
+      // MailerLite signup into a failed form submission. Hash before sending;
+      // the analytics database never receives the email address itself.
+      if (analyticsSecret) {
+        const visitorId = typeof body.visitor_id === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(body.visitor_id)
+          ? body.visitor_id : randomUUID();
+        const payload = JSON.stringify({
+          visitor_id: visitorId,
+          email_hash: createHash('sha256').update(body.email.trim().toLowerCase()).digest('hex'),
+        });
+        for (let attempt = 0; attempt < 2; attempt++) {
+          try {
+            const tracked = await fetchImpl('https://server-production-d531.up.railway.app/language-course/signup', {
+              method: 'POST', headers: { 'Content-Type': 'application/json', 'x-course-secret': analyticsSecret },
+              body: payload, signal: AbortSignal.timeout(2_000),
+            });
+            if (tracked.ok) break;
+          } catch { /* Retry once, then preserve signup success. */ }
+          if (attempt === 1) console.error('[Course signup] Could not record anonymous conversion');
+        }
       }
       reply(res, 200, { success: true, confirmationRequired: subscriber.status === 'unconfirmed' });
     } catch (error) {
