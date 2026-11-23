@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect } from "react";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Link, useLocation, useNavigationType } from "react-router-dom";
-import jamesPortrait from "@/assets/james-portrait.jpg";
 import { CoachingAbout } from "@/components/CoachingAbout";
 import { trackCoaching } from "@/lib/coachingAnalytics";
 import {
@@ -92,7 +91,7 @@ const Coaching = () => {
             Back to home
           </Link>
 
-          <div className="grid items-center gap-8 pb-12 pt-7 sm:pb-8 sm:pt-4 md:grid-cols-[1.6fr_1fr] md:pb-12 md:pt-8 lg:gap-12">
+          <div className="grid items-center gap-8 pb-12 pt-7 sm:pb-8 sm:pt-4 md:grid-cols-[1fr_1fr] md:pb-12 md:pt-8 lg:gap-12">
             <div>
               <p className="mb-4 font-semibold text-primary">One-to-one language coaching</p>
               <h1 className="text-4xl leading-[1.12] min-[380px]:text-[2.625rem] sm:text-4xl sm:leading-[1.1] lg:text-5xl">
@@ -108,10 +107,16 @@ const Coaching = () => {
                 </Button>
               </div>
             </div>
-            <img
-              src={jamesPortrait}
-              alt="James Hutchinson"
-              className="hidden aspect-square w-full max-w-sm justify-self-end rounded-2xl object-cover shadow-book md:block"
+            <video
+              className="aspect-video w-full justify-self-end rounded-2xl bg-black object-cover shadow-book"
+              src="/coaching-intro.mp4"
+              poster="/coaching-intro-poster.jpg"
+              autoPlay
+              muted
+              playsInline
+              controls
+              preload="auto"
+              aria-label="James introduces one-to-one language coaching"
             />
           </div>
         </div>
