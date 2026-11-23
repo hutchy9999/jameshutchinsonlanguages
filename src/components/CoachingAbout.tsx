@@ -1,68 +1,43 @@
 import jamesCloseUp from "@/assets/james-close-up.jpg";
 
+const credentials = [
+  { value: "13", label: "Years learning Spanish & Italian" },
+  { value: "1,800+", label: "YouTube subscribers" },
+  { value: "Published author", label: "No Bullsh*t Language Learning" },
+  { value: "Voco", label: "Conversation practice app I built" },
+];
+
 export const CoachingAbout = () => (
   <section className="border-y bg-card px-4 py-12 sm:px-6 sm:py-16" aria-labelledby="about-heading">
-    <div className="mx-auto max-w-6xl">
-      <h2 id="about-heading" className="text-3xl sm:text-4xl">Hi, I'm <span className="text-primary">James.</span></h2>
-
-      <div className="mt-6 grid gap-7 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6 lg:col-start-2 lg:row-start-1 lg:block">
-          <img
-            src={jamesCloseUp}
-            alt="James Hutchinson"
-            width={500}
-            height={500}
-            loading="lazy"
-            className="aspect-square w-[clamp(7rem,40vw,11rem)] max-w-full rounded-xl object-cover shadow-book lg:w-full lg:rounded-2xl"
-          />
-          <dl className="grid min-w-[min(100%,8.5rem)] flex-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:mt-5">
-            <div className="flex flex-col-reverse justify-end gap-1">
-              <dt className="text-sm leading-snug text-muted-foreground">Years learning Spanish and Italian</dt>
-              <dd className="text-2xl font-bold text-primary sm:text-3xl">13</dd>
-            </div>
-            <div className="flex flex-col-reverse justify-end gap-1">
-              <dt className="text-sm leading-snug text-muted-foreground">
-                <a href="https://www.youtube.com/@jameshutchinsonlangs" className="underline underline-offset-4 hover:text-primary">
-                  YouTube subscribers
-                </a>
-              </dt>
-              <dd className="text-2xl font-bold text-primary sm:text-3xl">1,800+</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div className="space-y-5 lg:col-start-1 lg:row-start-1 lg:space-y-6">
-          <div>
-            <h3 className="text-xl">Living in Spain</h3>
-            <p className="mt-2 leading-relaxed text-foreground/90 sm:text-lg">
-              During my Erasmus year in Spain, I remember offering someone some vodka before a night out. I got the words out in whatever order they came to me, and they understood. That was when it clicked for me. A few words and a gesture can keep a conversation going, and every time that happens, it gets a little easier to speak up again.
-            </p>
-          </div>
-          <div className="border-t pt-5 sm:pt-6">
-            <h3 className="text-xl">What learning Italian taught me</h3>
-            <p className="mt-2 leading-relaxed text-foreground/90 sm:text-lg">
-              In the years that followed, learning Italian gave me a chance to put some of the psychology I'd been reading about into practice. These are three things that helped me in real conversations.
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-foreground/90 marker:text-primary sm:text-lg">
-              <li>
-                <strong>Listen for the words you know.</strong> When someone speaks quickly, I pick out familiar words and use the context to fill in the gaps. That helps me keep up with what they say next.
-              </li>
-              <li>
-                <strong>Think in the language you're speaking.</strong> I try to form my reply in Italian as I go. It helps me stay with the conversation.
-              </li>
-              <li>
-                <strong>Give new words something to stick to.</strong> When I learnt <i lang="it">macchina</i>, the Italian word for car, it reminded me of <i>machine</i>. That little association helped me remember it the next time I needed it.
-              </li>
-            </ul>
-          </div>
-          <div className="border-t pt-5 sm:pt-6">
-            <h3 className="text-xl">From practice to Voco and the book</h3>
-            <p className="mt-2 leading-relaxed text-foreground/90 sm:text-lg">
-              I built Voco to get more speaking practice before visiting my partner's family in Italy, then opened it up to other learners. I published <cite>No Bullsh*t Language Learning</cite> to share what I'd learnt, and I talk about what I'm trying now on YouTube. In a coaching session, we'll work out what you can put into practice before your move.
-            </p>
-          </div>
+    <div className="mx-auto max-w-5xl">
+      <div className="grid items-center gap-8 md:grid-cols-[16rem_1fr] md:gap-12">
+        <img
+          src={jamesCloseUp}
+          alt="James Hutchinson"
+          width={500}
+          height={500}
+          loading="lazy"
+          className="aspect-square w-full max-w-[12rem] rounded-2xl object-cover shadow-book md:max-w-none"
+        />
+        <div>
+          <h2 id="about-heading" className="text-3xl sm:text-4xl">Hi, I'm <span className="text-primary">James.</span></h2>
+          <p className="mt-4 text-2xl font-bold leading-snug sm:text-3xl">
+            <span className="text-primary">&ldquo;</span>A few words and a gesture can keep a conversation going.<span className="text-primary">&rdquo;</span>
+          </p>
+          <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            I learnt that during my Erasmus year in Spain, and I've spent 13 years since working out how to help it happen faster.
+          </p>
         </div>
       </div>
+
+      <dl className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+        {credentials.map(({ value, label }) => (
+          <div key={label} className="flex flex-col-reverse justify-end rounded-xl border bg-background p-4 text-center">
+            <dt className="mt-1 text-sm leading-snug text-muted-foreground">{label}</dt>
+            <dd className="text-2xl font-bold leading-tight text-primary">{value}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </section>
 );

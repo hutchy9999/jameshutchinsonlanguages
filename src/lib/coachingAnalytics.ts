@@ -1,4 +1,5 @@
-type CoachingEvent = "home_coaching_click" | "coaching_view" | "booking_hero" | "booking_footer";
+// Booking buttons are numbered down the page: 1 = top, 2 = after "What you'll leave with", 3 = offer box.
+type CoachingEvent = "home_coaching_click" | "coaching_view" | "booking_button_1" | "booking_button_2" | "booking_button_3";
 
 const endpoint = "https://server-production-d531.up.railway.app/coaching-analytics";
 const storageKey = "jhl_coaching_session";

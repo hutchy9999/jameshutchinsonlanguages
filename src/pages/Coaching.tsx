@@ -12,7 +12,9 @@ import {
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_BOOKING_URL = "https://calendly.com/james-jameshutchinsonlanguages/language-coaching";
-const sessionPrice = "£40 per 60-minute session";
+const priceAmount = "£40";
+const priceUnit = "per 60-minute session";
+const sessionPrice = `${priceAmount} ${priceUnit}`;
 const bookingButtonClass = "h-auto min-h-12 w-full whitespace-normal bg-primary px-4 py-3.5 text-lg font-bold text-background hover:bg-primary/90 sm:w-auto sm:px-8 sm:py-2 sm:text-sm";
 
 const movingAbroadWorries = [
@@ -24,26 +26,25 @@ const movingAbroadWorries = [
 
 const sessionTakeaways = [
   {
-    title: "A clear understanding of what's holding you back",
-    description: "We'll identify why you're struggling to make progress and what needs to change, so you can stop wasting time on methods that aren't working for you.",
+    title: "Clarity on what's holding you back",
+    description: "We find out why progress has stalled, so you stop spending time on what isn't working.",
   },
   {
-    title: "A personalised roadmap for your move abroad",
-    description: "A realistic plan built around your current level, available time and moving date, with clear priorities and milestones to work towards.",
+    title: "A roadmap built around your life",
+    description: "Clear priorities and a few milestones that fit your level, your time and your situation.",
   },
   {
-    title: "A system to stay consistent and track your progress",
-    description: "Know what to practise, how to measure improvement and what to do when motivation drops or life gets in the way.",
+    title: "A simple system to stay consistent",
+    description: "Know what to practise and how to track it, even when motivation dips. Book a follow-up and we'll adjust the plan together.",
   },
 ];
 
 const offerIncludes = [
-  { title: "A 60-minute one-to-one session", detail: " built around your situation and where you get stuck" },
-  { title: "A clear understanding of what's holding you back", detail: ", so you stop wasting time on what isn't working" },
-  { title: "A personalised roadmap for life abroad", detail: ", with priorities and milestones that fit your level and your time" },
-  { title: "A simple system to stay consistent", detail: " and track your progress, even when motivation dips" },
-  { title: "Free access to Voco", detail: ", my conversation practice platform, to rehearse the situations we pick together" },
-  { title: "The option of follow-ups", detail: " to review what you managed and adjust the plan together" },
+  { title: "A 60-minute one-to-one session", detail: " built around your situation" },
+  { title: "Clarity on what's holding you back", detail: "" },
+  { title: "A personalised roadmap", detail: " with priorities and milestones" },
+  { title: "A simple system", detail: " to stay consistent and track progress" },
+  { title: "Free access to Voco", detail: "" },
 ];
 
 const faqs = [
@@ -111,7 +112,7 @@ const Coaching = () => {
               </p>
               <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
                 <Button asChild size="lg" className={bookingButtonClass}>
-                  <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_hero")}>Choose a time <ArrowRight aria-hidden="true" /></a>
+                  <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_button_1")}>Choose a time <ArrowRight aria-hidden="true" /></a>
                 </Button>
               </div>
             </div>
@@ -130,26 +131,12 @@ const Coaching = () => {
         </div>
       </section>
 
-      <section className="px-4 py-10 sm:px-6 md:py-12" aria-labelledby="approach-heading">
-        <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[2fr_3fr] lg:gap-10">
-          <h2 id="approach-heading" className="text-[2rem] leading-tight sm:text-4xl">How I’ll help you get there</h2>
-          <div className="max-w-3xl space-y-3 text-lg leading-relaxed text-foreground/90">
-            <p>
-              We’ll start with where you’re moving, what you’ve tried and where you get stuck. I’ll draw on my 13 years of language experience to help you decide what’s worth practising before you go. We’ll agree on a few milestones so you know whether you’re making progress.
-            </p>
-            <p>
-              If you book a follow-up, we’ll look at what you managed, talk through what got in the way and adjust the plan together.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="border-y border-border bg-card px-4 py-10 sm:px-6 sm:py-8 md:py-12" aria-labelledby="audience-heading">
         <div className="mx-auto grid max-w-6xl gap-6 sm:gap-5 lg:grid-cols-[2fr_3fr] lg:gap-10">
           <div>
             <h2 id="audience-heading" className="text-[2rem] leading-tight sm:text-4xl">Who is this for?</h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground sm:mt-3 sm:text-base">
-              This is for you if you're moving abroad in the near future and still feel nervous about using the language day to day.
+              You're moving abroad soon, or you're already there, and you still feel nervous about using the language day to day.
             </p>
           </div>
           <ul className="grid gap-5 sm:grid-cols-2 sm:gap-4">
@@ -162,23 +149,34 @@ const Coaching = () => {
         </div>
       </section>
 
-      <section className="px-4 py-8 sm:px-6 md:py-12" aria-labelledby="session-heading">
-        <div className="mx-auto max-w-6xl">
-          <h2 id="session-heading" className="text-3xl sm:text-4xl">What you'll leave with</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {sessionTakeaways.map(({ title, description }) => (
-              <div key={title} className="rounded-2xl border bg-card p-6 shadow-book">
-                <Check aria-hidden="true" className="mb-4 h-5 w-5 text-primary" />
-                <h3 className="text-xl">{title}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{description}</p>
-              </div>
-            ))}
+      <section className="px-4 py-12 sm:px-6 md:py-16" aria-labelledby="session-heading">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <h2 id="session-heading" className="text-[2rem] leading-tight sm:text-4xl">What you'll <span className="text-primary">leave with</span></h2>
+            <p className="mt-3 text-lg text-muted-foreground">Three things, in one hour.</p>
           </div>
-          <div className="mt-4 rounded-2xl border border-primary/40 bg-card p-5 sm:p-6">
-            <h3 className="text-xl">Free access to Voco</h3>
-            <p className="mt-2 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              Your session includes free access to Voco, the conversation practice platform I built. After the call, you can use it to practise the situations we pick together, like calling a landlord, booking an appointment or chatting to a new neighbour.
+          <ol className="mt-8 space-y-4">
+            {sessionTakeaways.map(({ title, description }, index) => (
+              <li key={title} className="grid grid-cols-[2.75rem_1fr] items-start gap-4 rounded-2xl border bg-card p-5 sm:grid-cols-[3rem_1fr] sm:gap-5 sm:p-6">
+                <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/15 text-xl font-bold text-primary sm:h-12 sm:w-12">{index + 1}</span>
+                <div>
+                  <h3 className="text-xl">{title}</h3>
+                  <p className="mt-1.5 leading-relaxed text-muted-foreground">{description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-4 rounded-2xl border bg-card p-6 sm:p-8">
+            <p className="text-sm font-bold uppercase tracking-wider text-primary">Included with your session</p>
+            <h3 className="mt-1 text-2xl">Free access to Voco</h3>
+            <p className="mt-2.5 text-lg leading-relaxed text-muted-foreground">
+              Voco is a platform I built for practising speaking another language in a relaxed environment. After our call, you'll use it to rehearse the situations we picked together, like calling a landlord or chatting to a new neighbour.
             </p>
+          </div>
+          <div className="mt-8 text-center">
+            <Button asChild size="lg" className={bookingButtonClass}>
+              <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_button_2")}>Choose a time <ArrowRight aria-hidden="true" /></a>
+            </Button>
           </div>
         </div>
       </section>
@@ -209,7 +207,11 @@ const Coaching = () => {
           </p>
           <div className="mt-8 rounded-2xl border border-primary/40 bg-gradient-hero px-5 py-8 text-left shadow-book sm:p-10">
             <h3 className="text-center text-2xl sm:text-3xl">Your one-to-one coaching session</h3>
-            <p className="mx-auto mb-7 mt-2 max-w-md text-center text-muted-foreground">
+            <p className="mt-4 text-center">
+              <span className="block text-6xl font-extrabold leading-none tracking-tight sm:text-7xl">{priceAmount}</span>
+              <span className="mt-2 block text-lg text-muted-foreground">{priceUnit}</span>
+            </p>
+            <p className="mx-auto mb-7 mt-5 max-w-md text-center text-muted-foreground">
               One hour to work out what to practise, and a plan you can start on straight away.
             </p>
             <ul className="mb-8 space-y-4">
@@ -223,9 +225,9 @@ const Coaching = () => {
               ))}
             </ul>
             <Button asChild size="lg" className={`${bookingButtonClass} mx-auto flex max-w-md`}>
-              <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_footer")}>Choose a time <ArrowRight aria-hidden="true" /></a>
+              <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_button_3")}>Choose a time <ArrowRight aria-hidden="true" /></a>
             </Button>
-            <p className="mt-4 text-center text-sm text-muted-foreground">{sessionPrice} · No commitment to more sessions</p>
+            <p className="mt-4 text-center text-sm text-muted-foreground">No commitment to more sessions</p>
           </div>
         </div>
       </section>
