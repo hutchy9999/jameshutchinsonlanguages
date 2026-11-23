@@ -37,6 +37,15 @@ const sessionTakeaways = [
   },
 ];
 
+const offerIncludes = [
+  { title: "A 60-minute one-to-one session", detail: " built around your situation and where you get stuck" },
+  { title: "A clear understanding of what's holding you back", detail: ", so you stop wasting time on what isn't working" },
+  { title: "A personalised roadmap for life abroad", detail: ", with priorities and milestones that fit your level and your time" },
+  { title: "A simple system to stay consistent", detail: " and track your progress, even when motivation dips" },
+  { title: "Free access to Voco", detail: ", my conversation practice platform, to rehearse the situations we pick together" },
+  { title: "The option of follow-ups", detail: " to review what you managed and adjust the plan together" },
+];
+
 const faqs = [
   {
     question: "Can I book if I'm starting from scratch?",
@@ -191,12 +200,33 @@ const Coaching = () => {
       </section>
 
       <section id="book" tabIndex={-1} className="scroll-mt-6 px-4 pb-16 sm:px-6 sm:pb-20" aria-labelledby="booking-heading">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-gradient-hero px-4 py-10 text-center shadow-book sm:p-12">
-          <h2 id="booking-heading" className="text-3xl sm:text-4xl">Book your coaching session</h2>
-          <p className="mb-6 mt-3 text-lg text-muted-foreground">{sessionPrice} with James.</p>
-          <Button asChild size="lg" className={bookingButtonClass}>
-            <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_footer")}>Choose a time <ArrowRight aria-hidden="true" /></a>
-          </Button>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 id="booking-heading" className="text-[2rem] leading-[1.1] sm:text-5xl">
+            Imagine feeling like you <span className="text-primary">belong where you live.</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            Chatting to a neighbour, asking for help, joining in at dinner. Whether you're about to move or already there, get ready for those moments so they start to feel normal.
+          </p>
+          <div className="mt-8 rounded-2xl border border-primary/40 bg-gradient-hero px-5 py-8 text-left shadow-book sm:p-10">
+            <h3 className="text-center text-2xl sm:text-3xl">Your one-to-one coaching session</h3>
+            <p className="mx-auto mb-7 mt-2 max-w-md text-center text-muted-foreground">
+              One hour to work out what to practise, and a plan you can start on straight away.
+            </p>
+            <ul className="mb-8 space-y-4">
+              {offerIncludes.map(({ title, detail }) => (
+                <li key={title} className="flex items-start gap-3.5 leading-relaxed text-foreground/90">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                    <Check aria-hidden="true" className="h-3.5 w-3.5 text-primary" />
+                  </span>
+                  <span><strong className="font-semibold text-foreground">{title}</strong>{detail}</span>
+                </li>
+              ))}
+            </ul>
+            <Button asChild size="lg" className={`${bookingButtonClass} mx-auto flex max-w-md`}>
+              <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_footer")}>Choose a time <ArrowRight aria-hidden="true" /></a>
+            </Button>
+            <p className="mt-4 text-center text-sm text-muted-foreground">{sessionPrice} · No commitment to more sessions</p>
+          </div>
         </div>
       </section>
     </main>
