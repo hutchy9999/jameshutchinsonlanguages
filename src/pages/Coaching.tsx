@@ -101,7 +101,6 @@ const Coaching = () => {
                 Being able to ask for help, chat to a neighbour or join in at dinner can change how a new place feels. I help you feel ready to have those conversations.
               </p>
               <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
-                <p className="text-lg font-semibold sm:text-base">{sessionPrice}</p>
                 <Button asChild size="lg" className={bookingButtonClass}>
                   <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_hero")}>Choose a time <ArrowRight aria-hidden="true" /></a>
                 </Button>
