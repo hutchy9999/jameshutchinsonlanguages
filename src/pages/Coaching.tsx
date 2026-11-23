@@ -101,8 +101,9 @@ const Coaching = () => {
             Back to home
           </Link>
 
-          <div className="grid items-center gap-8 pb-12 pt-7 sm:pb-8 sm:pt-4 md:grid-cols-[1fr_1fr] md:pb-12 md:pt-8 lg:gap-12">
-            <div>
+          {/* Mobile order: text, video, button (the video says "click the button below"). Desktop: text and button on the left, video on the right. */}
+          <div className="grid items-center gap-8 pb-12 pt-7 sm:pb-8 sm:pt-4 md:grid-cols-[1fr_1fr] md:gap-y-0 md:pb-12 md:pt-8 lg:gap-x-12">
+            <div className="md:col-start-1 md:row-start-1 md:self-end">
               <p className="mb-4 font-semibold text-primary">One-to-one language coaching</p>
               <h1 className="text-4xl leading-[1.12] min-[380px]:text-[2.625rem] sm:text-4xl sm:leading-[1.1] lg:text-5xl">
                 Feel more at home <span className="mt-1 block text-primary sm:mt-0 sm:inline">when you move abroad.</span>
@@ -110,14 +111,9 @@ const Coaching = () => {
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/90 sm:mt-5">
                 Being able to ask for help, chat to a neighbour or join in at dinner can change how a new place feels. I help you feel ready to have those conversations.
               </p>
-              <div className="mt-7 space-y-4 sm:mt-5 sm:space-y-3">
-                <Button asChild size="lg" className={bookingButtonClass}>
-                  <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_button_1")}>Choose a time <ArrowRight aria-hidden="true" /></a>
-                </Button>
-              </div>
             </div>
             <video
-              className="aspect-video w-full justify-self-end rounded-2xl bg-black object-cover shadow-book"
+              className="aspect-video w-full rounded-2xl bg-black object-cover shadow-book md:col-start-2 md:row-span-2 md:row-start-1 md:justify-self-end"
               src="/coaching-intro.mp4"
               poster="/coaching-intro-poster.jpg"
               autoPlay
@@ -127,6 +123,11 @@ const Coaching = () => {
               preload="auto"
               aria-label="James introduces one-to-one language coaching"
             />
+            <div className="-mt-2 md:col-start-1 md:row-start-2 md:mt-7 md:self-start">
+              <Button asChild size="lg" className={bookingButtonClass}>
+                <a href={CALENDLY_BOOKING_URL} onClick={() => trackCoaching("booking_button_1")}>Choose a time <ArrowRight aria-hidden="true" /></a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
